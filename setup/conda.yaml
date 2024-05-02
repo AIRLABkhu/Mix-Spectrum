@@ -1,4 +1,4 @@
-name: dmcgb3
+name: ms
 channels:
   - defaults
 dependencies:
