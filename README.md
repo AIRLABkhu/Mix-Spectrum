@@ -18,6 +18,11 @@ Through extensive experiments on the DMControl Generalization Benchmark (DMContr
 
 
 ## Setup
+### Requirements
+- Ubuntu 20.04
+- Python 3.7
+- CUDA >=11.0
+
 ### Install MuJoCo
 Download the MuJoCo version 2.1 binaries for Linux or OSX. (https://www.roboti.us/)
 
