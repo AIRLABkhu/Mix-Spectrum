@@ -28,8 +28,6 @@ Download the MuJoCo version 2.1 binaries for Linux or OSX.
 
 follow this guidline. :) (https://gist.github.com/saratrajput/60b1310fe9d9df664f9983b38b50d5da)
 
-Extract the downloaded mujoco210 directory into \~/.mujoco/mujoco210.
-
 If you want to specify a nonstandard location for the package, use the env variable MUJOCO_PY_MUJOCO_PATH.  
 pip3 install -U 'mujoco-py<2.2,>=2.1'
 
