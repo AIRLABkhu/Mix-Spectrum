@@ -16,6 +16,13 @@ Through extensive experiments on the DMControl Generalization Benchmark (DMContr
 ## Framework
 ![overview](https://github.com/AIRLABkhu/Mix-Spectrum/assets/140928101/5129d59b-9a9d-41a0-86e6-aa96296c7b41)
 
+## Experimental Results
+### DMControl-GB
+![Screenshot from 2024-05-02 10-54-15](https://github.com/AIRLABkhu/Mix-Spectrum/assets/140928101/b038d1f3-65a7-4860-9001-3ccf93b11e34)
+
+### Procgen
+![Screenshot from 2024-05-02 10-54-21](https://github.com/AIRLABkhu/Mix-Spectrum/assets/140928101/a5740779-9741-4d70-8138-86d3a68b4a42)
+
 ## Setup
 ### Requirements
 - Ubuntu 20.04
@@ -30,12 +37,7 @@ follow this guidline. (https://gist.github.com/saratrajput/60b1310fe9d9df664f998
 If you want to specify a nonstandard location for the package, use the env variable MUJOCO_PY_MUJOCO_PATH.  
 pip3 install -U 'mujoco-py<2.2,>=2.1'
 
-## Experimental Results
-### DMControl-GB
-![Screenshot from 2024-05-02 10-54-15](https://github.com/AIRLABkhu/Mix-Spectrum/assets/140928101/b038d1f3-65a7-4860-9001-3ccf93b11e34)
 
-### Procgen
-![Screenshot from 2024-05-02 10-54-21](https://github.com/AIRLABkhu/Mix-Spectrum/assets/140928101/a5740779-9741-4d70-8138-86d3a68b4a42)
 
 
 ### Install DMControl
