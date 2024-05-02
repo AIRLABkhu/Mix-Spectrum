@@ -45,6 +45,7 @@ pip3 install -U 'mujoco-py<2.2,>=2.1'
 ``` bash
 conda env create -f setup/conda.yaml
 conda activate ms
+conda install pytorch==1.13.1 torchvision==0.14.1 torchaudio==0.13.1 pytorch-cuda=11.7 -c pytorch -c nvidia
 sh setup/install_envs.sh
 ```
 
