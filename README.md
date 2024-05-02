@@ -59,4 +59,4 @@ python train.py --env_name $env --algo ppo --seed $seed --gpu_device $gpu
 For any questions, discussions, and proposals, please contact us at everyman123@khu.ac.kr
 
 ### Code Reference
-- [https://github.com/Yara-HYR/SRM](https://github.com/POSTECH-CVLab/style-agnostic-RL)
+- [[https://github.com/Yara-HYR/SRM](https://github.com/POSTECH-CVLab/style-agnostic-RL)](https://github.com/POSTECH-CVLab/style-agnostic-RL)
