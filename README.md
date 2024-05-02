@@ -29,60 +29,34 @@ Through extensive experiments on the DMControl Generalization Benchmark (DMContr
 - Python 3.7
 - CUDA >=11.0
 
-### Install MuJoCo
-Download the MuJoCo version 2.1 binaries for Linux or OSX. 
-
-follow this guidline. (https://gist.github.com/saratrajput/60b1310fe9d9df664f9983b38b50d5da)
-
-If you want to specify a nonstandard location for the package, use the env variable MUJOCO_PY_MUJOCO_PATH.  
-pip3 install -U 'mujoco-py<2.2,>=2.1'
-
-
-
-
-### Install DMControl
-
-``` bash
-conda env create -f setup/conda.yaml
-conda activate ms
-sh setup/install_envs.sh
+### Baselines
+```bash
+git clone https://github.com/openai/baselines.git
+cd baselines 
+python setup.py install 
+```
+### Procgen
+```bash
+pip install procgen
+```
+### Python module requirements
+```bash
+pip install torch==1.10.1+cu113 torchvision==0.11.2+cu113 torchaudio==0.10.1+cu113 -f https://download.pytorch.org/whl/cu113/torch_stable.html
+pip install tensofrlow-gpu==2.5.1 
+pip install gym==0.15.3
+pip install higher==0.2 kornia==0.3.0
+pip install tensorboard termcolor matplotlib imageio imageio-ffmpeg 
+pip install scikit-image pandas pyyaml
 ```
 
-### Usage
-``` bash
-from env.wrappers import make_env  
-env = make_env(  
-        domain_name=args.domain_name,  
-        task_name=args.task_name,  
-        seed=args.seed,  
-        episode_length=args.episode_length,  
-        action_repeat=args.action_repeat,  
-        image_size=args.image_size,  
-        mode='train'  
-)
-env.reset()
-
-done = False
-while not done:
-    action = env.action_space.sample()
-    obs, reward, done, info = env.step(action)  
+## Training
+```bash
+python train.py --env_name $env --algo ppo --seed $seed --gpu_device $gpu
 ```
 
-You can try other environments easily.
-
-
-
-### Training
-``` bash
-python src/train.py --domain_name walker --task_name walk --eval_mode color_easy --algorithm sac_aug --seed 1111 --augmentation mix_freq --action_repeat 4 --gpu 0
-python src/train.py --domain_name walker --task_name stand --eval_mode color_easy --algorithm sac_aug --seed 1111 --augmentation mix_freq --action_repeat 4 --gpu 0
-python src/train.py --domain_name cartpole --task_name swingup --eval_mode color_easy --algorithm sac_aug --seed 1111 --augmentation mix_freq --action_repeat 8 --gpu 0
-python src/train.py --domain_name ball_in_cup --task_name catch --eval_mode color_easy --algorithm sac_aug --seed 1111 --augmentation mix_freq --action_repeat 4 --gpu 0
-python src/train.py --domain_name finger --task_name spin --eval_mode color_easy --algorithm sac_aug --seed 1111 --augmentation mix_freq --action_repeat 2 --gpu 0
-```
 
 ### Contact
 For any questions, discussions, and proposals, please contact us at everyman123@khu.ac.kr
 
 ### Code Reference
-- https://github.com/Yara-HYR/SRM
+- [https://github.com/Yara-HYR/SRM](https://github.com/POSTECH-CVLab/style-agnostic-RL)
