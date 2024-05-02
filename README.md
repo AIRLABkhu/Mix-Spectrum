@@ -1,5 +1,5 @@
 # Mix-Spectrum for Generalization in Visual Reinforcement Learning
-The official PytTorch implementation of "Mix-Spectrum for Generalization in Visual Reinforcement Learning". Note the main branch only contains the code for DMControl-GB. If you want the code for Procgen, you can find in Procgen branch.
+The official PyTorch implementation of "Mix-Spectrum for Generalization in Visual Reinforcement Learning". Note the main branch only contains the code for DMControl-GB. If you want the code for Procgen, you can find it in Procgen branch.
 
 ## Abstract
 > Visual Reinforcement Learning (RL) trains agents on policies using raw images showing potential for real-world applications. 
