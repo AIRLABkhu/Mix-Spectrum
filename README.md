@@ -35,7 +35,7 @@ pip3 install -U 'mujoco-py<2.2,>=2.1'
 ### Install DMControl
 
 ``` bash
-conda env create -f setup/conda.yml
+conda env create -f setup/conda.yaml
 conda activate dmcgb
 sh setup/install_envs.sh
 ```
