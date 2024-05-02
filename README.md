@@ -72,3 +72,11 @@ python src/train.py --domain_name cartpole --task_name swingup --eval_mode color
 python src/train.py --domain_name ball_in_cup --task_name catch --eval_mode color_easy --algorithm sac_aug --seed 1111 --augmentation mix_freq --action_repeat 4 --gpu 0
 python src/train.py --domain_name finger --task_name spin --eval_mode color_easy --algorithm sac_aug --seed 1111 --augmentation mix_freq --action_repeat 2 --gpu 0
 ```
+
+### Contact
+For any questions, discussions, and proposals, please contact us at 'everyman123@khu.ac.kr'
+
+### License
+
+### Code Reference
+- https://github.com/Yara-HYR/SRM
