@@ -1,5 +1,5 @@
 # Mix-Spectrum for Generalization in Visual Reinforcement Learning
-The official PytTorch implementation of "Mix-Spectrum for Generalization in Visual Reinforcement Learning"
+The official PytTorch implementation of "Mix-Spectrum for Generalization in Visual Reinforcement Learning". Nothat the main branch only contains the code for DMControl-GB. If you want the code for Procgen, you can find in Procgen branch.
 
 ## Abstract
 > Visual Reinforcement Learning (RL) trains agents on policies using raw images showing potential for real-world applications. 
@@ -35,7 +35,6 @@ pip3 install -U 'mujoco-py<2.2,>=2.1'
 ![Screenshot from 2024-05-02 10-54-15](https://github.com/AIRLABkhu/Mix-Spectrum/assets/140928101/b038d1f3-65a7-4860-9001-3ccf93b11e34)
 
 ### Procgen
-- You can fine the code for Procgen in Procgen branch.
 ![Screenshot from 2024-05-02 10-54-21](https://github.com/AIRLABkhu/Mix-Spectrum/assets/140928101/a5740779-9741-4d70-8138-86d3a68b4a42)
 
 
