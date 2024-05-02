@@ -13,9 +13,15 @@ These allow the augmentation of both preserving the semantic information and inc
 Furthermore, the proposed method stands out for adaptability integrating with any visual RL algorithm, whether off-policy or on-policy.
 Through extensive experiments on the DMControl Generalization Benchmark (DMControl-GB) and Procgen, our method demonstrates superior performance compared to existing frequency-based and image augmentation methods in zero-shot generalization.
 
-## Figure
+## Framework
 ![overview](https://github.com/AIRLABkhu/Mix-Spectrum/assets/140928101/5129d59b-9a9d-41a0-86e6-aa96296c7b41)
 
+## Experimental Results
+### DMControl-GB
+![Screenshot from 2024-05-02 10-54-15](https://github.com/AIRLABkhu/Mix-Spectrum/assets/140928101/b7f828e7-5dab-4bcb-a54f-99fc5b3e1219)
+
+### Procgen
+![Screenshot from 2024-05-02 10-54-21](https://github.com/AIRLABkhu/Mix-Spectrum/assets/140928101/d6ca0ab5-dbc8-4201-b28c-bc5030a8a791)
 
 ## Setup
 ### Requirements
