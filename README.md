@@ -17,8 +17,8 @@ Through extensive experiments on the DMControl Generalization Benchmark (DMContr
 ![overview](https://github.com/AIRLABkhu/Mix-Spectrum/assets/140928101/5129d59b-9a9d-41a0-86e6-aa96296c7b41)
 
 
-
-## Install MuJoCo
+## Setup
+### Install MuJoCo
 Download the MuJoCo version 2.1 binaries for Linux or OSX. (https://www.roboti.us/)
 
 Extract the downloaded mujoco210 directory into \~/.mujoco/mujoco210.
@@ -27,7 +27,7 @@ If you want to specify a nonstandard location for the package, use the env varia
 pip3 install -U 'mujoco-py<2.2,>=2.1'
 
 
-## Install DMControl
+### Install DMControl
 
 ``` bash
 conda env create -f setup/conda.yml
@@ -35,7 +35,7 @@ conda activate dmcgb
 sh setup/install_envs.sh
 ```
 
-## Usage
+### Usage
 ``` bash
 from env.wrappers import make_env  
 env = make_env(  
@@ -59,7 +59,7 @@ You can try other environments easily.
 
 
 
-## Training
+### Training
 ``` bash
 python src/train.py --domain_name walker --task_name walk --eval_mode color_easy --algorithm sac_aug --seed 1111 --augmentation mix_freq --action_repeat 4 --gpu 0
 python src/train.py --domain_name walker --task_name stand --eval_mode color_easy --algorithm sac_aug --seed 1111 --augmentation mix_freq --action_repeat 4 --gpu 0
