@@ -16,7 +16,6 @@ Through extensive experiments on the DMControl Generalization Benchmark (DMContr
 ## Framework
 ![overview](https://github.com/AIRLABkhu/Mix-Spectrum/assets/140928101/5129d59b-9a9d-41a0-86e6-aa96296c7b41)
 
-
 ## Setup
 ### Requirements
 - Ubuntu 20.04
