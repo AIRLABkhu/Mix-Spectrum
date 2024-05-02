@@ -74,7 +74,7 @@ python src/train.py --domain_name finger --task_name spin --eval_mode color_easy
 ```
 
 ### Contact
-For any questions, discussions, and proposals, please contact us at 'everyman123@khu.ac.kr'
+For any questions, discussions, and proposals, please contact us at everyman123@khu.ac.kr
 
 ### Code Reference
 - https://github.com/Yara-HYR/SRM
