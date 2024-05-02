@@ -1,7 +1,7 @@
 # Mix-Spectrum for Generalization in Visual Reinforcement Learning
 The official PytTorch implementation of "Mix-Spectrum for Generalization in Visual Reinforcement Learning"
 
-### Abstract
+## Abstract
 > Visual Reinforcement Learning (RL) trains agents on policies using raw images showing potential for real-world applications. 
 However, the limited diversity in the training environment often results in overfitting with agents underperforming in unseen environments.
 To address this issue, image augmentation is utilized in visual RL, but the effectiveness is limited due to the potential to alter the state information of the image.
@@ -13,10 +13,12 @@ These allow the augmentation of both preserving the semantic information and inc
 Furthermore, the proposed method stands out for adaptability integrating with any visual RL algorithm, whether off-policy or on-policy.
 Through extensive experiments on the DMControl Generalization Benchmark (DMControl-GB) and Procgen, our method demonstrates superior performance compared to existing frequency-based and image augmentation methods in zero-shot generalization.
 
-### Figure
-[graphical_abstract.pdf](https://github.com/AIRLABkhu/Mix-Spectrum/files/15182910/graphical_abstract.pdf)
+## Figure
+![overview](https://github.com/AIRLABkhu/Mix-Spectrum/assets/140928101/5129d59b-9a9d-41a0-86e6-aa96296c7b41)
 
-### Install MuJoCo
+
+
+## Install MuJoCo
 Download the MuJoCo version 2.1 binaries for Linux or OSX. (https://www.roboti.us/)
 
 Extract the downloaded mujoco210 directory into \~/.mujoco/mujoco210.
@@ -25,7 +27,7 @@ If you want to specify a nonstandard location for the package, use the env varia
 pip3 install -U 'mujoco-py<2.2,>=2.1'
 
 
-### Install DMControl
+## Install DMControl
 
 ``` bash
 conda env create -f setup/conda.yml
@@ -33,7 +35,7 @@ conda activate dmcgb
 sh setup/install_envs.sh
 ```
 
-### Usage
+## Usage
 ``` bash
 from env.wrappers import make_env  
 env = make_env(  
@@ -57,7 +59,7 @@ You can try other environments easily.
 
 
 
-### Training
+## Training
 ``` bash
 python src/train.py --domain_name walker --task_name walk --eval_mode color_easy --algorithm sac_aug --seed 1111 --augmentation mix_freq --action_repeat 4 --gpu 0
 python src/train.py --domain_name walker --task_name stand --eval_mode color_easy --algorithm sac_aug --seed 1111 --augmentation mix_freq --action_repeat 4 --gpu 0
