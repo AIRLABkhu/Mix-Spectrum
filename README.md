@@ -1,79 +1,54 @@
-# Mix-Spectrum for Generalization in Visual Reinforcement Learning
-The official PytTorch implementation of "Mix-Spectrum for Generalization in Visual Reinforcement Learning"
+# Style-Agnostic Reinforcement Learning
+The official GitHub repository of [Style-Agnostic Reinforcement Learning](https://arxiv.org/abs/2208.14863) (ECCV 2022). 
 
-## Abstract
-> Visual Reinforcement Learning (RL) trains agents on policies using raw images showing potential for real-world applications. 
-However, the limited diversity in the training environment often results in overfitting with agents underperforming in unseen environments.
-To address this issue, image augmentation is utilized in visual RL, but the effectiveness is limited due to the potential to alter the state information of the image.
-Therefore, we introduce \textit{Mix-Spectrum}, a straightforward yet highly effective frequency-based augmentation method that maintains the state consistency of data and enhances the agent's focus on semantic information.
-The proposed method mixes the original and reference image randomly sampled from the dataset in the frequency domain.
-Our method transforms the images to the Fourier frequency domain using the Fast Fourier Transform (FFT) and mixes only the amplitudes while preserving the phase of the original image.
-Furthermore, to introduce the diversity of amplitude, our method initially applies Random Convolution to the reference image as a perturbation in the frequency domain.
-These allow the augmentation of both preserving the semantic information and increasing the diversity of amplitude for robust generalization in visual RL tasks.
-Furthermore, the proposed method stands out for adaptability integrating with any visual RL algorithm, whether off-policy or on-policy.
-Through extensive experiments on the DMControl Generalization Benchmark (DMControl-GB) and Procgen, our method demonstrates superior performance compared to existing frequency-based and image augmentation methods in zero-shot generalization.
+## Requirements
+- ubuntu 18.04    
+- nvidia-driver 460.91.03    
+- python 3.8     
+- cuda 11.2     
+- torch 1.10   
+- tensorflow 1.15.0
+- gym 0.15.3  
+- tensorflow-gpu 2.5.1
 
-## Framework
-![overview](https://github.com/AIRLABkhu/Mix-Spectrum/assets/140928101/5129d59b-9a9d-41a0-86e6-aa96296c7b41)
-
-## Setup
-### Requirements
-- Ubuntu 20.04
-- Python 3.7
-- CUDA >=11.0
-
-### Install MuJoCo
-Download the MuJoCo version 2.1 binaries for Linux or OSX. 
-
-follow this guidline. (https://gist.github.com/saratrajput/60b1310fe9d9df664f9983b38b50d5da)
-
-If you want to specify a nonstandard location for the package, use the env variable MUJOCO_PY_MUJOCO_PATH.  
-pip3 install -U 'mujoco-py<2.2,>=2.1'
-
-
-### Install DMControl
-
-``` bash
-conda env create -f setup/conda.yaml
-conda activate ms
-sh setup/install_envs.sh
+## Installation Guide
+**(1) baselines**
+```bash
+git clone https://github.com/openai/baselines.git
+cd baselines 
+python setup.py install 
 ```
 
-### Usage
-``` bash
-from env.wrappers import make_env  
-env = make_env(  
-        domain_name=args.domain_name,  
-        task_name=args.task_name,  
-        seed=args.seed,  
-        episode_length=args.episode_length,  
-        action_repeat=args.action_repeat,  
-        image_size=args.image_size,  
-        mode='train'  
-)
-env.reset()
-
-done = False
-while not done:
-    action = env.action_space.sample()
-    obs, reward, done, info = env.step(action)  
+**(2) procgen** (https://github.com/openai/procgen)
+```bash
+pip install procgen
 ```
 
-You can try other environments easily.
-
-
-
-### Training
-``` bash
-python src/train.py --domain_name walker --task_name walk --eval_mode color_easy --algorithm sac_aug --seed 1111 --augmentation mix_freq --action_repeat 4 --gpu 0
-python src/train.py --domain_name walker --task_name stand --eval_mode color_easy --algorithm sac_aug --seed 1111 --augmentation mix_freq --action_repeat 4 --gpu 0
-python src/train.py --domain_name cartpole --task_name swingup --eval_mode color_easy --algorithm sac_aug --seed 1111 --augmentation mix_freq --action_repeat 8 --gpu 0
-python src/train.py --domain_name ball_in_cup --task_name catch --eval_mode color_easy --algorithm sac_aug --seed 1111 --augmentation mix_freq --action_repeat 4 --gpu 0
-python src/train.py --domain_name finger --task_name spin --eval_mode color_easy --algorithm sac_aug --seed 1111 --augmentation mix_freq --action_repeat 2 --gpu 0
+**(3) python module requirements**
+```bash
+pip install torch==1.10.1+cu113 torchvision==0.11.2+cu113 torchaudio==0.10.1+cu113 -f https://download.pytorch.org/whl/cu113/torch_stable.html
+pip install tensofrlow-gpu==2.5.1 
+pip install gym==0.15.3
+pip install higher==0.2 kornia==0.3.0
+pip install tensorboard termcolor matplotlib imageio imageio-ffmpeg 
+pip install scikit-image pandas pyyaml
 ```
 
-### Contact
-For any questions, discussions, and proposals, please contact us at everyman123@khu.ac.kr
+## How to Train
+```bash
+python train.py --env_name $env --algo $algo --aug_type $aug --seed $seed --gpu_device $gpu
+```
 
-### Code Reference
-- https://github.com/Yara-HYR/SRM
+## Citing Style-Agnostic RL
+If you use the Style-Agnostic RL model, please cite:
+```
+@inproceedings{Lee_StyleAgnostic_ECCV_2022,
+    Title={Style-Agnostic Reinforcement Learning},
+    Author={Juyong Lee and Seokjun Ahn and Jaesik Park},
+    Booktitle={Proceedings of the European Conference on Computer Vision (ECCV)},
+    Year={2022}
+}
+```
+
+## Acknowledgements 
+This code was based on an open sourced [PyTorch implementation of DrAC](https://github.com/rraileanu/auto-drac).
