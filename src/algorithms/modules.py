@@ -128,18 +128,16 @@ class SODAMLP(nn.Module):
 
 
 class SharedCNN(nn.Module):
-	def __init__(self, obs_shape, num_layers=4, num_filters=32):
+	def __init__(self, obs_shape, num_layers=11, num_filters=32):
 		super().__init__()
 		assert len(obs_shape) == 3
 		self.num_layers = num_layers
 		self.num_filters = num_filters
 
 		self.layers = [CenterCrop(size=84), NormalizeImg(), nn.Conv2d(obs_shape[0], num_filters, 3, stride=2)]
-		for _ in range(1, num_layers-1):
+		for _ in range(1, num_layers):
 			self.layers.append(nn.ReLU())
 			self.layers.append(nn.Conv2d(num_filters, num_filters, 3, stride=1))
-		self.layers.append(nn.ReLU())
-		self.layers.append(nn.Conv2d(num_filters, num_filters, 3, stride=2))			
 		self.layers = nn.Sequential(*self.layers)
 		self.out_shape = _get_out_shape(obs_shape, self.layers)
 		self.apply(weight_init)
@@ -218,8 +216,6 @@ class Actor(nn.Module):
 
 		return mu, pi, log_pi, log_std
 
-	def show_headmap(self,x,detach=False):
-		return self.encoder(x,detach)
 
 class QFunction(nn.Module):
 	def __init__(self, obs_dim, action_dim, hidden_dim):
@@ -251,8 +247,6 @@ class Critic(nn.Module):
 		x = self.encoder(x, detach)
 		return self.Q1(x, action), self.Q2(x, action)
 
-	def show_heatmap(self,x,detach=False):
-		return self.encoder(x,detach)
 
 class CURLHead(nn.Module):
 	def __init__(self, encoder):
@@ -300,6 +294,9 @@ class SODAPredictor(nn.Module):
 			encoder.out_dim, hidden_dim, encoder.out_dim
 		)
 		self.apply(weight_init)
+
+	def forward(self, x):
+		return self.mlp(self.encoder(x))
 
 	def forward(self, x):
 		return self.mlp(self.encoder(x))
