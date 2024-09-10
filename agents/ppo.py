@@ -24,9 +24,9 @@ def random_conv(x,args=None):
 	n, c, h, w = x.shape
 	for i in range(n):
 		weights = torch.randn(3, 3, 3, 3).to(x.device)
-		temp_x = x[i:i+1].reshape(-1, 3, h, w)/255.
+		temp_x = x[i:i+1].reshape(-1, 3, h, w)
 		temp_x = F.pad(temp_x, pad=[1]*4, mode='replicate')
-		out = torch.sigmoid(F.conv2d(temp_x, weights))*255.
+		out = torch.sigmoid(F.conv2d(temp_x, weights))
 		total_out = out if i == 0 else torch.cat([total_out, out], axis=0)
 	return total_out.reshape(n, c, h, w)
 
