@@ -85,3 +85,8 @@ For any questions, discussions, and proposals, please contact us at everyman123@
 
 ### Code Reference
 - https://github.com/Yara-HYR/SRM
+
+### Acknowledgements
+``` bash
+This work was supported in part by IITP Grant funded by the Korean Government (MSIT), Artificial Intelligence Convergence Innovation Human Resources Development (Kyung Hee University), under Grant RS-2022-00155911.
+```
